@@ -2,7 +2,7 @@
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-green.svg)](https://nodejs.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](LICENSE)
 
 A command-line tool and TypeScript/Node.js client library to automate and manage [Nginx Proxy Manager](https://nginxproxymanager.com/) (NPM) hosts, SSL certificates (Let's Encrypt / Custom), access lists, TCP/UDP streams, HTTP redirections, and declarative GitOps configurations.
 
@@ -304,5 +304,5 @@ npm run build
 ---
 
 ## License
-
-MIT
+ 
+GNU General Public License v2.0 (GPL-2.0). See [LICENSE](LICENSE) for details.
