@@ -1,0 +1,71 @@
+version: "1.0"
+settings:
+  npm_url: "http://localhost:81"
+  default_email: "admin@example.com"
+
+certificates:
+  - name: "wildcard-example-com"
+    provider: "letsencrypt"
+    domain_names:
+      - "*.example.com"
+      - "example.com"
+    dns_challenge: true
+    dns_provider: "cloudflare"
+    dns_provider_credentials: |
+      dns_cloudflare_api_token = 0123456789abcdef0123456789abcdef01234567
+
+access_lists:
+  - name: "internal-network"
+    satisfy_any: false
+    pass_auth: false
+    items:
+      - address: "192.168.1.0/24"
+        directive: "allow"
+      - address: "10.0.0.0/8"
+        directive: "allow"
+      - address: "0.0.0.0/0"
+        directive: "deny"
+    clients:
+      - username: "devops"
+        password: "secretpassword"
+
+proxy_hosts:
+  - domain_names:
+      - "vaultwarden.example.com"
+    forward_scheme: "http"
+    forward_host: "192.168.1.50"
+    forward_port: 8080
+    ssl_forced: true
+    http2_support: true
+    allow_websocket_upgrade: true
+    block_exploits: true
+    certificate: "wildcard-example-com"
+    access_list: "internal-network"
+    locations:
+      - path: "/notifications/hub"
+        forward_scheme: "http"
+        forward_host: "192.168.1.50"
+        forward_port: 3012
+
+  - domain_names:
+      - "grafana.example.com"
+    forward_scheme: "http"
+    forward_host: "192.168.1.51"
+    forward_port: 3000
+    ssl_forced: true
+    certificate: "wildcard-example-com"
+
+streams:
+  - incoming_port: 2222
+    forwarding_host: "192.168.1.60"
+    forwarding_port: 22
+    tcp_forwarding: true
+    udp_forwarding: false
+
+redirections:
+  - domain_names:
+      - "old.example.com"
+    forward_scheme: "https"
+    forward_domain_name: "new.example.com"
+    forward_http_code: 301
+    preserve_path: true
