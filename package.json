@@ -1,5 +1,5 @@
 {
-  "name": "npm-manager-cli",
+  "name": "@arvesv/npm-manager-cli",
   "version": "1.0.0",
   "type": "module",
   "description": "A powerful TypeScript CLI and SDK for Nginx Proxy Manager (NPM)",
@@ -11,6 +11,13 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arvesv/NginxProxySetup.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "tsx bin/npm-cli.ts",
     "build": "tsup",
@@ -45,7 +52,7 @@
     "@types/node": "^26.4.0",
     "tsup": "^8.3.6",
     "tsx": "^4.19.3",
-    "typescript": "^7.0.2",
+    "typescript": "^5.9.3",
     "vitest": "^4.1.11"
   }
 }

@@ -257,7 +257,7 @@ npm-cli apply --file npm-config.yaml --prune
 You can import `NginxProxyManager` directly into any Node/TypeScript project:
 
 ```typescript
-import { NginxProxyManager } from "npm-manager-cli";
+import { NginxProxyManager } from "@arvesv/npm-manager-cli";
 
 const npm = new NginxProxyManager({
   baseUrl: "http://192.168.1.100:81",
