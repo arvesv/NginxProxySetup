@@ -43,16 +43,16 @@
     "commander": "^15.0.0",
     "dotenv": "^17.4.2",
     "form-data": "^4.0.2",
-    "inquirer": "^14.2.0",
+    "inquirer": "^14.2.1",
     "ora": "^9.4.1",
     "yaml": "^2.7.0",
     "zod": "^4.5.4"
   },
   "devDependencies": {
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.4.1",
     "tsup": "^8.3.6",
     "tsx": "^4.19.3",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.0"
   }
 }
